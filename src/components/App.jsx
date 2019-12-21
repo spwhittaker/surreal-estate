@@ -1,6 +1,9 @@
 import React from 'react';
 import '../Styles/App.css';
 import NavBar from '../components/NavBar';
+import {Route, Switch} from 'react-router';
+import Properties from './Properties';
+import AddProperty from './AddProperty';
 
 class App extends React.Component {
     constructor(props) {
@@ -9,7 +12,11 @@ class App extends React.Component {
   render() { 
       return (<div>
           <NavBar />
-          Something</div>)
+          <Switch>
+              <Route exact path="/" component={Properties} />
+              <Route path="/add-property" component={AddProperty} />
+          </Switch>
+          </div>)
   }
 };
 

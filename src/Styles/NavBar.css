@@ -19,4 +19,5 @@ list-style-type: none;}
 button:hover{color: blue;
 display: inline-block;}
 
-img {max-width: 10%;}
+img {max-width: 10%;
+max-height: 100px;}

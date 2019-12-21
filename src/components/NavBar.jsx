@@ -7,7 +7,7 @@ class NavBar extends React.Component {
     }
     render (){return (<div className="NavBar">
         <ul className="nav">
-            <img src="../img/house.png" alt="weird house"/>
+            <img src={require("../img/house.png")} alt="weird house"/>
             <li className="item"><button type='button'>View properties</button></li>
             <li className="item"><button type='button'>Add a property</button></li>
         </ul>
