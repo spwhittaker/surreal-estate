@@ -1,5 +1,6 @@
 import React from 'react';
-import '../Styles/NavBar.css'
+import '../Styles/NavBar.css';
+import {Link} from 'react-router-dom';
 
 class NavBar extends React.Component {
     constructor(props){
@@ -8,8 +9,8 @@ class NavBar extends React.Component {
     render (){return (<div className="NavBar">
         <ul className="nav">
             <img src={require("../img/house.png")} alt="weird house"/>
-            <li className="item"><button type='button'>View properties</button></li>
-            <li className="item"><button type='button'>Add a property</button></li>
+            <Link className="item" to='/'>View properties</Link>
+            <Link className="item" to='/add-property'>Add a property</Link>
         </ul>
     </div>)}
 } 
