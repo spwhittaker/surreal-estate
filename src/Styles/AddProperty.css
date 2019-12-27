@@ -9,4 +9,16 @@ button {
   background-color: white;
   padding: 5px;
   font-family: 'Helvetica', sans-serif;
+  margin: 30px;
+}
+
+.inputField {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  max-height: 20px;
+  min-height: auto;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
 }
