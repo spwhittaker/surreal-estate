@@ -1,23 +1,28 @@
 .nav {
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
 }
 
 .NavBar {
-    background-color: #5e0843;
-    border-bottom-color: pink;
-    
+  background-color: #5e0843;
+  border-bottom-color: pink;
 }
 
-.item{padding: 6px;
-margin: 0;
-text-decoration: none;
-list-style-type: none;}
-button:hover{color: blue;
-display: inline-block;}
+.item {
+  padding: 6px;
+  margin: 0;
+  text-decoration: none;
+  list-style-type: none;
+}
+button:hover {
+  color: blue;
+  display: inline-block;
+}
 
-img {max-width: 10%;
-max-height: 100px;}
+img {
+  max-width: 10%;
+  max-height: 100px;
+}

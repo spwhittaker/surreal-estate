@@ -1,1 +1,12 @@
-.AddProperty {padding: 10px;}
+.AddProperty {
+  padding: 10px;
+}
+.selectDropdown {
+  background-color: white;
+  margin: 0px 5px 5px 5px;
+}
+button {
+  background-color: white;
+  padding: 5px;
+  font-family: 'Helvetica', sans-serif;
+}
