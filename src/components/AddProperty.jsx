@@ -1,5 +1,6 @@
 import React from 'react';
 import '../Styles/AddProperty.css';
+import Alert from './Alert';
 import Axios from 'axios';
 //import { getConsoleOutput } from '@jest/console';
 
@@ -16,7 +17,11 @@ class AddProperty extends React.Component {
         bedrooms: 1,
         email: '',
       },
+      alertMessage: 'foo',
+      isSuccess: false,
+      isError: false,
     };
+    // this.handleAddProperty = this.handleAddProperty.bind(this);
   }
 
   render() {
@@ -25,6 +30,7 @@ class AddProperty extends React.Component {
         <h2>Add Property Page</h2>
         <form onSubmit={this.handleAddProperty}>
           <div className="inputField">
+            <Alert message={this.state.alertMessage} />
             <h4>Name of property</h4>
             <input
               type="text"
@@ -119,12 +125,24 @@ class AddProperty extends React.Component {
   }
   handleAddProperty = event => {
     event.preventDefault();
+    this.setState(() => {
+      return {
+        ...this.state,
+        alertMessage: '',
+        isSuccess: false,
+        isError: false,
+      };
+    });
     Axios.post('/api/v1/PropertyListing', this.state.fields)
-      .then(function(res) {
+      .then(res => {
+        this.setState({
+          isSuccess: true,
+          alertMessage: 'Your property has been added to the list',
+        });
         console.log(res);
       })
-      .catch(function(error) {
-        console.log(error);
+      .catch(err => {
+        this.setState({ isSuccess: false, alertMessage: "Sorry, that didn't work" });
       });
   };
   handleFieldChange = event => {
