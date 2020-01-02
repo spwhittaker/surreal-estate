@@ -1,6 +1,6 @@
 import React from 'react';
 import '../Styles/AddProperty.css';
-import axios from 'axios';
+import Axios from 'axios';
 //import { getConsoleOutput } from '@jest/console';
 
 class AddProperty extends React.Component {
@@ -119,8 +119,7 @@ class AddProperty extends React.Component {
   }
   handleAddProperty = event => {
     event.preventDefault();
-    axios
-      .post('api/v1/PropertyListing', this.state.fields)
+    Axios.post('/api/v1/PropertyListing', this.state.fields)
       .then(function(res) {
         console.log(res);
       })
