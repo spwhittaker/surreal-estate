@@ -15,6 +15,14 @@ export default Alert;
 
 import React from 'react';
 
-const Alert = ({ message }) => <div className="Alert">{message}</div>;
+const Alert = ({ message, success, error }) => (
+  <div className={`Alert${success ? ' success' : error ? ' error' : ''}`}>{message}</div>
+);
+
+/* const Alert = ({ message, success }) => (
+  <div className={`Alert${success ? ' success' : ''}`}>
+    {message}
+  </div>
+); */
 
 export default Alert;

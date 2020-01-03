@@ -17,7 +17,7 @@ class AddProperty extends React.Component {
         bedrooms: 1,
         email: '',
       },
-      alertMessage: 'foo',
+      alertMessage: null,
       isSuccess: false,
       isError: false,
     };
@@ -29,8 +29,12 @@ class AddProperty extends React.Component {
       <div className="AddProperty">
         <h2>Add Property Page</h2>
         <form onSubmit={this.handleAddProperty}>
+          <Alert
+            message={this.state.alertMessage}
+            success={this.state.isSuccess}
+            error={this.state.isError}
+          />
           <div className="inputField">
-            <Alert message={this.state.alertMessage} />
             <h4>Name of property</h4>
             <input
               type="text"
@@ -40,6 +44,7 @@ class AddProperty extends React.Component {
               onChange={this.handleFieldChange}
             ></input>
           </div>
+
           <div className="inputField">
             <h4>Type of property:</h4>
             <select
@@ -138,11 +143,12 @@ class AddProperty extends React.Component {
         this.setState({
           isSuccess: true,
           alertMessage: 'Your property has been added to the list',
+          isError: false,
         });
         console.log(res);
       })
       .catch(err => {
-        this.setState({ isSuccess: false, alertMessage: "Sorry, that didn't work" });
+        this.setState({ isSuccess: false, alertMessage: "Sorry, that didn't work", isError: true });
       });
   };
   handleFieldChange = event => {
