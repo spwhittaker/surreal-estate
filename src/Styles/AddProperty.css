@@ -44,3 +44,8 @@ button {
   border-color: #26ab8a;
   color: #3b4a3f;
 }
+
+input {
+  min-width: 100px;
+  max-width: 15%;
+}

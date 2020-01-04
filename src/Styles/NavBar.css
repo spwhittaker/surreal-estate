@@ -16,7 +16,14 @@
   margin: 0;
   text-decoration: none;
   list-style-type: none;
+  background-color: white;
+  font-family: 'Helvetica', sans-serif;
+  margin: 10px;
+  border: solid grey;
+  border-radius: 3px;
+  max-height: 20px;
 }
+
 button:hover {
   color: blue;
   display: inline-block;
