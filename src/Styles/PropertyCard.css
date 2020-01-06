@@ -1,0 +1,32 @@
+.PropertyCard {
+  border: solid black 3px;
+  background-color: #ffe9ff;
+  width: auto;
+  min-width: 20%;
+  padding: 5px;
+  margin: 10px;
+  display: inline-block;
+  text-align: center;
+}
+.Alert {
+  display: none;
+}
+
+.Alert.error {
+  margin: 10px;
+  padding: 5px;
+  border: solid;
+  display: inline-block;
+  background-color: rgb(246, 163, 163);
+  border-color: #aa4448;
+  color: #5c000d;
+}
+.Alert.success {
+  margin: 10px;
+  padding: 5px;
+  border: solid;
+  display: inline-block;
+  background-color: #5ec27f;
+  border-color: #26ab8a;
+  color: #3b4a3f;
+}

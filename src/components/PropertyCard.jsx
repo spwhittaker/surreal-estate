@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { NONAME } from 'dns';
+import '../Styles/PropertyCard.css';
 
 const PropertyCard = ({ email, price, bedrooms, city, title, type, bathrooms }) => (
-  <div>
+  <div className="PropertyCard">
     <h1>{title}</h1>
     <p>
       {type} - {city}

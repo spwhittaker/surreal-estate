@@ -1,0 +1,35 @@
+.Alert {
+  display: none;
+}
+
+.Alert.error {
+  margin: 10px;
+  padding: 5px;
+  border: solid;
+  display: inline-block;
+  background-color: rgb(246, 163, 163);
+  border-color: #aa4448;
+  color: #5c000d;
+}
+.Alert.success {
+  margin: 10px;
+  padding: 5px;
+  border: solid;
+  display: inline-block;
+  background-color: #5ec27f;
+  border-color: #26ab8a;
+  color: #3b4a3f;
+}
+
+body {
+  margin: 0;
+}
+h3 {
+  margin: 20px;
+}
+
+.allProperties {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}

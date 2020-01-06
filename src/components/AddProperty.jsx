@@ -2,7 +2,6 @@ import React from 'react';
 import '../Styles/AddProperty.css';
 import Alert from './Alert';
 import Axios from 'axios';
-//import { getConsoleOutput } from '@jest/console';
 
 class AddProperty extends React.Component {
   constructor(props) {
@@ -147,7 +146,7 @@ class AddProperty extends React.Component {
         });
         console.log(res);
       })
-      .catch(err => {
+      .catch(() => {
         this.setState({ isSuccess: false, alertMessage: "Sorry, that didn't work", isError: true });
       });
   };
