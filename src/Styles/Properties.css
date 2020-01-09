@@ -32,4 +32,39 @@ h3 {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  flex-basis: 1;
+  padding: 0.5rem;
+  flex-grow: 100%;
+}
+
+/* .allProperties {
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}*/
+.allProperties > * {
+  flex: 1 1 80px;
+}
+
+.allProperties > .col {
+  display: inline-block;
+
+  width: 33%;
+  padding: 0.5rem;
+  box-sizing: border-box;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: no-wrap;
+}
+
+.sidebar {
+  float: left;
+  padding: 10px;
+  background-color: white;
+  height: 100%;
+  display: block;
 }

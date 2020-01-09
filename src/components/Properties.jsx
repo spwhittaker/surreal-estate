@@ -3,6 +3,7 @@ import PropertyCard from './PropertyCard';
 import Axios from 'axios';
 import Alert from './Alert';
 import '../Styles/Properties.css';
+import { Link } from 'react-router-dom';
 
 class Properties extends Component {
   constructor(props) {
@@ -24,22 +25,57 @@ class Properties extends Component {
         }),
       );
   }
+  componentDidUpdate(prevProps) {
+    const { search } = this.props.location;
+
+    if (prevProps.location.search !== search) {
+      Axios.get(`/api/v1/PropertyListing${search}`)
+        .then(({ data: properties }) => this.setState({ properties }))
+        .catch(err => console.error(err));
+    }
+  }
 
   render() {
     return (
-      <div>
-        <Alert
-          style="display: block"
-          message={this.state.alertMessage}
-          success={this.state.isSuccess}
-          error={this.state.isError}
-        />
-        <h3>Properties Page</h3>
-        <br />
-        <div className="allProperties">
-          {this.state.properties.map(residence => {
-            return <PropertyCard key={residence['_id']} {...residence} />;
-          })}
+      <div className="flexContainer">
+        <div className="sidebar">
+          <div>
+            <div>
+              <Link to={`/?query={"city": "Manchester"}`}>Manchester</Link>
+            </div>
+            <div>
+              <Link to={`/?query={"city": "Leeds"}`}>Leeds</Link>
+            </div>
+            <div>
+              <Link to={`/?query={"city": "Sheffield"}`}>Sheffield</Link>
+            </div>
+            <div>
+              <Link to={`/?query={"city": "Liverpool"}`}>Liverpool</Link>
+            </div>
+            <div>
+              <Link to={''}>See All</Link>
+            </div>
+          </div>
+        </div>
+        <div>
+          <Alert
+            style="display: block"
+            message={this.state.alertMessage}
+            success={this.state.isSuccess}
+            error={this.state.isError}
+          />
+          <h3>Properties Page</h3>
+
+          <br />
+          <div className="allProperties">
+            {this.state.properties.map(residence => {
+              return (
+                <div key={residence['_id']} className="col">
+                  <PropertyCard {...residence} />
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
     );
