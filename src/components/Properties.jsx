@@ -4,6 +4,7 @@ import Axios from 'axios';
 import Alert from './Alert';
 import '../Styles/Properties.css';
 import { Link } from 'react-router-dom';
+import qs from 'qs';
 
 class Properties extends Component {
   constructor(props) {
@@ -34,6 +35,14 @@ class Properties extends Component {
         .catch(err => console.error(err));
     }
   }
+  buildQueryString = (operation, valueObj) => {
+    const {
+      location: { search },
+    } = this.props;
+    const currentQueryParams = qs.parse(search, { ignoreQueryPrefix: true });
+    const newQueryParams = { ...currentQueryParams, [operation]: JSON.stringify(valueObj) };
+    return qs.stringify(newQueryParams, { addQueryPrefix: true, encode: false });
+  };
 
   render() {
     return (
@@ -41,7 +50,7 @@ class Properties extends Component {
         <div className="sidebar">
           <div>
             <div>
-              <Link to={`/?query={"city": "Manchester"}`}>Manchester</Link>
+              <Link to={this.buildQueryString('query', { city: 'Manchester' })}>Manchester</Link>
             </div>
             <div>
               <Link to={`/?query={"city": "Leeds"}`}>Leeds</Link>
@@ -54,6 +63,9 @@ class Properties extends Component {
             </div>
             <div>
               <Link to={''}>See All</Link>
+            </div>
+            <div>
+              <Link to={this.buildQueryString('sort', { price: -1 })}>Price Descending</Link>
             </div>
           </div>
         </div>
