@@ -59,7 +59,7 @@ class Properties extends Component {
         <div className="sidebar">
           <div>
             <div>
-              <Link to={`/?query={"city": "Manchester"}`}>Manchester</Link>
+              <Link to={this.buildQueryString('query', { city: 'Manchester' })}>Manchester</Link>
             </div>
             <div>
               <Link to={`/?query={"city": "Manchester"}`}>Manchester</Link>
@@ -75,6 +75,9 @@ class Properties extends Component {
             </div>
             <div>
               <Link to={''}>See All</Link>
+            </div>
+            <div>
+              <Link to={this.buildQueryString('sort', { price: -1 })}>Price Descending</Link>
             </div>
           </div>
         </div>
