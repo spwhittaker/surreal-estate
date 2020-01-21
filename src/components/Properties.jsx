@@ -54,6 +54,7 @@ class Properties extends Component {
       <div className="flexContainer">
         <div className="sidebar">
           <div>
+            <h2 className="sidebarHeading">Filter by City</h2>
             <div>
               <Link to={this.buildQueryString('query', { city: 'Manchester' })}>Manchester</Link>
             </div>
@@ -70,8 +71,12 @@ class Properties extends Component {
             <div>
               <Link to={''}>See All</Link>
             </div>
+            <h2 className="sidebarHeading">Filter by Price</h2>
             <div>
               <Link to={this.buildQueryString('sort', { price: -1 })}>Price Descending</Link>
+            </div>
+            <div>
+              <Link to={this.buildQueryString('sort', { price: 1 })}>Price Ascending</Link>
             </div>
           </div>
         </div>
