@@ -40,18 +40,14 @@ class Properties extends Component {
       location: { search },
     } = this.props;
 
-    const currentQueryParams = qs.parse(search, { ignoreQueryPrefix: true});
+    const currentQueryParams = qs.parse(search, { ignoreQueryPrefix: true });
     const newQueryParams = {
       ...currentQueryParams,
-      [operation]: JSON.stringify(valueObj)
-    }
+      [operation]: JSON.stringify(valueObj),
+    };
 
-    return qs.stringify(newQueryParams, {addQueryPrefix: true, encode:false})
+    return qs.stringify(newQueryParams, { addQueryPrefix: true, encode: false });
   }
- 
-};
-
-
 
   render() {
     return (
@@ -62,17 +58,15 @@ class Properties extends Component {
               <Link to={this.buildQueryString('query', { city: 'Manchester' })}>Manchester</Link>
             </div>
             <div>
-              <Link to={`/?query={"city": "Manchester"}`}>Manchester</Link>
+              <Link to={this.buildQueryString('query', { city: 'Leeds' })}>Leeds</Link>
             </div>
             <div>
-              <Link to={`/?query={"city": "Leeds"}`}>Leeds</Link>
+              <Link to={this.buildQueryString('query', { city: 'Sheffield' })}>Sheffield</Link>
             </div>
             <div>
-              <Link to={`/?query={"city": "Sheffield"}`}>Sheffield</Link>
+              <Link to={this.buildQueryString('query', { city: 'Liverpool' })}>Liverpool</Link>
             </div>
-            <div>
-              <Link to={`/?query={"city": "Liverpool"}`}>Liverpool</Link>
-            </div>
+
             <div>
               <Link to={''}>See All</Link>
             </div>
