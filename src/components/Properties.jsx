@@ -10,7 +10,13 @@ class Properties extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { properties: [], isError: null, alertMessage: null, isSuccess: null };
+    this.state = {
+      properties: [],
+      isError: null,
+      alertMessage: null,
+      isSuccess: null,
+      searchText: null,
+    };
     Axios.get('http://localhost:3000/api/v1/PropertyListing')
       .then(({ data }) => {
         this.setState({ properties: data });
@@ -49,10 +55,26 @@ class Properties extends Component {
     return qs.stringify(newQueryParams, { addQueryPrefix: true, encode: false });
   }
 
+  handleFieldChange = event => this.setState({ searchText: event.target.value });
+
   render() {
     return (
       <div className="flexContainer">
         <div className="sidebar">
+          <div>
+            <h2>Search by Name</h2>
+            <div className="inputField">
+              <h4>Name of property</h4>
+              <input
+                type="text"
+                required
+                name="searchText"
+                value={this.state.searchText}
+                onChange={this.handleFieldChange}
+              ></input>
+            </div>
+          </div>
+          <br />
           <div>
             <h2 className="sidebarHeading">Filter by City</h2>
             <div>
@@ -67,7 +89,7 @@ class Properties extends Component {
             <div>
               <Link to={this.buildQueryString('query', { city: 'Liverpool' })}>Liverpool</Link>
             </div>
-
+            <br />
             <div>
               <Link to={''}>See All</Link>
             </div>

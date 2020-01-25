@@ -38,8 +38,8 @@ class AddProperty extends React.Component {
             <input
               type="text"
               required
-              name="title"
-              value={this.state.fields.title}
+              name="searchText"
+              value={this.state.searchText}
               onChange={this.handleFieldChange}
             ></input>
           </div>
