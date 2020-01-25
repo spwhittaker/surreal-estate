@@ -67,6 +67,10 @@ h3 {
   padding: 5px;
 }
 
+.nameSearchForm {
+  display: inline;
+}
+
 /* .allProperties {
   height: 300px;
   display: flex;

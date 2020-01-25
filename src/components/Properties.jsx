@@ -15,7 +15,7 @@ class Properties extends Component {
       isError: null,
       alertMessage: null,
       isSuccess: null,
-      searchText: null,
+      search: '',
     };
     Axios.get('http://localhost:3000/api/v1/PropertyListing')
       .then(({ data }) => {
@@ -49,13 +49,23 @@ class Properties extends Component {
     const currentQueryParams = qs.parse(search, { ignoreQueryPrefix: true });
     const newQueryParams = {
       ...currentQueryParams,
-      [operation]: JSON.stringify(valueObj),
+      [operation]: JSON.stringify({
+        ...JSON.parse(currentQueryParams[operation] || '{}'),
+        ...valueObj,
+      }),
     };
 
     return qs.stringify(newQueryParams, { addQueryPrefix: true, encode: false });
   }
 
-  handleFieldChange = event => this.setState({ searchText: event.target.value });
+  //handleFieldChange = event => this.setState({ searchText: event.target.value });
+  handleSearch = event => {
+    event.preventDefault();
+    const { search } = this.state;
+    const newQueryString = this.buildQueryString('query', { title: { $regex: search } });
+    const { history } = this.props;
+    history.push(newQueryString);
+  };
 
   render() {
     return (
@@ -63,16 +73,21 @@ class Properties extends Component {
         <div className="sidebar">
           <div>
             <h2>Search by Name</h2>
-            <div className="inputField">
-              <h4>Name of property</h4>
-              <input
-                type="text"
-                required
-                name="searchText"
-                value={this.state.searchText}
-                onChange={this.handleFieldChange}
-              ></input>
-            </div>
+            <form onSubmit={this.handleSearch}>
+              <div className="nameSearchForm">
+                <h4>Name of property</h4>
+                <input
+                  type="text"
+                  required
+                  name="searchText"
+                  value={this.state.search}
+                  onChange={event => this.setState({ search: event.target.value })}
+                ></input>
+                <button type="submit" label="Search">
+                  Search
+                </button>
+              </div>
+            </form>
           </div>
           <br />
           <div>
