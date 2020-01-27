@@ -20,7 +20,7 @@ class Properties extends Component {
     Axios.get('http://localhost:3000/api/v1/PropertyListing')
       .then(({ data }) => {
         this.setState({ properties: data });
-        console.log(data);
+        //console.log(data);
       })
 
       .catch(err =>

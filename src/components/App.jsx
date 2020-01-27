@@ -8,12 +8,41 @@ import AddProperty from './AddProperty';
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { userId: '' };
+    this.state = {
+      userId: 6,
+      isLoggedIn: false,
+      name: '',
+      email: '',
+      picture: '',
+      accessToken: '',
+    };
   }
+  /* handleLogin = (req, res) => console.log('log in!'); */
+  handleLogin = response => {
+    console.log(response);
+    this.setState({
+      isLoggedIn: true,
+      userId: response.userID,
+      name: response.name,
+      email: response.email,
+      picture: response.picture.data.url,
+      accessToken: response.accessToken,
+    });
+  };
+
+  handleLogout = () => {
+    console.log('log out!');
+  };
+
   render() {
     return (
       <div>
-        <NavBar />
+        <NavBar
+          onLogin={this.handleLogin}
+          onLogout={this.handleLogout}
+          state={this.state}
+          userID={this.state.userID}
+        />
         <Switch>
           <Route
             exact
