@@ -58,13 +58,18 @@ class Properties extends Component {
     return qs.stringify(newQueryParams, { addQueryPrefix: true, encode: false });
   }
 
-  //handleFieldChange = event => this.setState({ searchText: event.target.value });
   handleSearch = event => {
     event.preventDefault();
     const { search } = this.state;
     const newQueryString = this.buildQueryString('query', { title: { $regex: search } });
     const { history } = this.props;
     history.push(newQueryString);
+  };
+
+  handleSaveProperty = propertyId => {
+    Axios.post('/api/v1/Favourite').body({
+      id: propertyId,
+    });
   };
 
   render() {
@@ -80,7 +85,6 @@ class Properties extends Component {
                   type="text"
                   required
                   name="searchText"
-                  value={this.state.search}
                   onChange={event => this.setState({ search: event.target.value })}
                 ></input>
                 <button type="submit" label="Search">
@@ -131,7 +135,7 @@ class Properties extends Component {
             {this.state.properties.map(residence => {
               return (
                 <div key={residence['_id']} className="col">
-                  <PropertyCard {...residence} />
+                  <PropertyCard {...residence} userID={this.props.userID} />
                 </div>
               );
             })}

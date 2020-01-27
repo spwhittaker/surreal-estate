@@ -8,13 +8,18 @@ import AddProperty from './AddProperty';
 class App extends React.Component {
   constructor(props) {
     super(props);
+    this.state = { userId: '' };
   }
   render() {
     return (
       <div>
         <NavBar />
         <Switch>
-          <Route exact path="/" component={Properties} />
+          <Route
+            exact
+            path="/"
+            render={props => <Properties {...props} userID={this.state.userID} />}
+          />
           <Route path="/add-property" component={AddProperty} />
         </Switch>
       </div>

@@ -51,6 +51,7 @@
     "eslint-plugin-react": "^7.16.0",
     "jest": "^24.9.0",
     "prettier": "^1.19.1",
-    "qs": "^6.9.1"
+    "qs": "^6.9.1",
+    "react-facebook-login": "^4.1.1"
   }
 }
