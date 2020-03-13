@@ -1,4 +1,4 @@
-import React, { Fragment, Component } from 'react';
+import React, { Component } from 'react';
 import PropertyCard from './PropertyCard';
 import Axios from 'axios';
 import Alert from './Alert';
@@ -123,7 +123,7 @@ class Properties extends Component {
         </div>
         <div>
           <Alert
-            style="display: block"
+            style={{ display: 'block' }}
             message={this.state.alertMessage}
             success={this.state.isSuccess}
             error={this.state.isError}

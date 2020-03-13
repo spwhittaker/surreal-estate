@@ -1,14 +1,8 @@
 import React from 'react';
 import '../Styles/NavBar.css';
-import ReactDOM, { Link } from 'react-router-dom';
-import FacebookLogin from 'react-facebook-login';
+import { Link } from 'react-router-dom';
 
-let fbButtons;
 class NavBar extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
       <div className="NavBar">
@@ -20,22 +14,6 @@ class NavBar extends React.Component {
           <Link className="item" to="/add-property">
             Add a property
           </Link>
-          {!this.props.state.userID && (
-            <FacebookLogin
-              appId="2526719230789556"
-              fields="name,email,picture"
-              callback={this.props.onLogin}
-            />
-          )}
-
-          {this.props.state.userID && (
-            <div>
-              <Link className="item" callback={this.props.onLogout}>
-                <img src={this.props.state.picture} alt={this.props.state.name} />
-                <span>{this.props.state.name}</span>Sign out
-              </Link>
-            </div>
-          )}
         </ul>
       </div>
     );

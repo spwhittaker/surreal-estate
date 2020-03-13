@@ -28,15 +28,6 @@ h3 {
   margin: 20px;
 }
 
-/* .allProperties {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  flex-basis: 1;
-  padding: 0.5rem;
-  flex-grow: 100%;
-} */
-
 .allProperties {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -56,34 +47,18 @@ h3 {
 }
 
 .sidebar {
-  /* float: left; */
   padding: 10px;
   background-color: white;
-  /*  height: 100%; */
 }
 
-.sidebar > * {
-  margin: 5px;
-  padding: 5px;
+.sidebar a {
+  text-decoration-line: none;
+  color: rgb(31, 4, 36);
+  font-size: large;
+  margin: 10px;
+  height: 10px;
 }
 
 .nameSearchForm {
   display: inline;
 }
-
-/* .allProperties {
-  height: 300px;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-}*/
-/* .allProperties > * {
-  flex: 1 1 80px;
-} */
-/* .allProperties > .col {
-                    display: inline-block;
-                  
-                    width: 33%;
-                    padding: 0.5rem;
-                    box-sizing: border-box;
-                  } */

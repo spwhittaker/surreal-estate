@@ -1,6 +1,5 @@
-import React, { Component } from 'react';
+import React from 'react';
 import '../Styles/PropertyCard.css';
-import PropTypes from 'prop-types';
 
 const PropertyCard = ({ email, price, bedrooms, city, title, type, bathrooms, userID }) => (
   <div className="PropertyCard">
